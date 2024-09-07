@@ -1,8 +1,10 @@
-version: "2.1"
 services:
-  mikhmon:
-    image: animegasan/mikhmon:latest
+  web:
     container_name: mikhmon
-    ports:
-      - 8080:80
+    build: ./
     restart: unless-stopped
+    ports:
+      - "80:80"
+    privileged: true
+    environment:
+      TZ: Asia/Jakarta
